@@ -8,10 +8,30 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 
-@Entity(name="Clients1")
+@Entity(name="Clients2")
 
 
 public class Client {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="phone")
+	private String phone;
+	
+	@Column(name="course")
+	private String course;
+	
+	@Column(name="message")
+	private String message;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -41,26 +61,30 @@ public class Client {
 		this.phone = phone;
 	}
 
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	
+	public String getCourse() {
+		return course;
+	}
+	
+	public void setMessage(String message) {
+		this.message=message;
+	}
+	
+	public String getMessage() {
+		return message;
+	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column(name="name")
-	private String name;
 	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="phone")
-	private String phone;
-	
-	
-	public Client(String name, String email, String phone) {
+	public Client(String name, String email, String phone,String course,String message) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		
+		this.course = course;
+		this.message = message;
 	}
 
 	
